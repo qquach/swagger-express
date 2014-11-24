@@ -3,6 +3,8 @@ var express = require('express'),
   bootstrap = require("./lib/bootstrap.js");
 
 var app = express();
+app.use('/swagger_ui', express.static(__dirname + '/swagger_ui'));
+app.use('/samples', express.static(__dirname + '/samples'));
 
 var swagger = express();
 swagger.use(bodyParser.urlencoded({ extended: false }));

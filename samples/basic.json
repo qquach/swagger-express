@@ -1,0 +1,69 @@
+{
+  "swagger":"2.0",
+  "info":{
+    "title":"swagger-express",
+    "description":"framework for create swagger api REST service with express",
+    "termsOfService":"it's all your",
+    "contact":{
+      "name":"Quoc Quach",
+      "url":"http://github.com/qquach",
+      "email":"quoc_cooc@yahoo.com"
+    },
+    "license":{
+      "name":"MIT License",
+      "url":"https://github.com/qquach/swagger-express/blob/master/LICENSE"
+    },
+    "version":"1.0.0"
+  },
+  "host":"localhost:3000",
+  "schemes":["http"],
+  "paths":{
+    "/swagger/check/{num}":{
+      "get":{
+        "tags":["manual"],
+        "summary":"summary of api",
+        "description": "description: test swagger api",
+        "consumes":["application/json","application/xml","text/xml"],
+        "produces":["application/json","application/xml"],
+        "parameters":[
+            {
+                "name":"num",
+                "in":"path",
+                "description":"test path parameters",
+                "required":true,
+                "type":"string"
+            },
+            {
+                "name":"check",
+                "in":"query",
+                "required":true,
+                "type":"string"
+            },
+            {
+                "name":"p",
+                "in":"query",
+                "required":false,
+                "type":"boolean"
+            }
+        ],
+        "responses":{
+          "200":{
+            "description":"successful check",
+            "schema":{
+              "type":"string"
+            },
+            "headers":{
+              "custom_header":{
+                "description":"a custom header",
+                "type":"string"
+              }
+            }
+          },
+          "400":{
+            "description":"bad request"
+          }
+        }
+      }
+    }
+  }
+}

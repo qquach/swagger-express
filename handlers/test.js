@@ -6,7 +6,7 @@ module.exports = function(fn){
     path: "/check/:abc?:check&:p",
     params:{
       abc:{
-        "description":"tes path parameters",
+        "description":"test path parameters",
         "required":true,
         "type":"integer"
       },
