@@ -18,6 +18,36 @@
   "host":"localhost:3000",
   "schemes":["http"],
   "paths":{
+    "/check/json1" : {
+        "post" : {
+            "tags" : ["test"],
+            "summary" : "",
+            "description" : "",
+            "parameters" : [{
+                "name":"body",
+                "in":"body",
+                "schema":{
+                  "$ref": "#/definitions/userInfo"
+                }
+            }],
+            "consumes" : ["application/json"]
+        }
+    },
+    "/check/json2" : {
+        "post" : {
+            "tags" : ["test"],
+            "summary" : "",
+            "description" : "",
+            "parameters" : [{
+                "name":"body",
+                "in":"body",
+                "schema":{
+                  "$ref": "#/definitions/userInfo2"
+                }
+            }],
+            "consumes" : ["application/json"]
+        }
+    },
     "/swagger/check/{num}":{
       "get":{
         "tags":["manual"],
@@ -64,6 +94,39 @@
           }
         }
       }
+    }
+  },
+  "definitions":{
+    "userInfo":{
+        "properties":{
+          "name": {
+            "description" : "test string",
+            "required" : true,
+            "type" : "string"
+              },
+          "age":{
+            "description" : "test an integer",
+            "required" : true,
+            "type" : "integer"
+          }
+        }
+    },
+    "userInfo2":{
+        "properties":{
+          "name": {
+            "description" : "test string",
+            "required" : true,
+            "type" : "string"
+              },
+          "age":{
+            "description" : "test an integer",
+            "required" : true,
+            "type" : "integer"
+          },
+          "test":{
+            "$ref":"userInfo"
+          }
+        }
     }
   }
 }

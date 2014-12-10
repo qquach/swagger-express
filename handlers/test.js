@@ -1,9 +1,15 @@
+/**
+ * Description of the test handler. This will be used as description for the tag object
+ */
 var util = require("util");
-var userInfo = require("../models/userInfo.js");
+var userInfo = require("../schema/userInfo.js");
+
 module.exports = function(fn){
   fn({
     method: "get",
     path: "/check/:abc?:check&:p",
+    summary:"test summary",
+    description: "test description",
     params:{
       abc:{
         "description":"test path parameters",
@@ -97,6 +103,31 @@ module.exports = function(fn){
     path: "/check/json2",
     contentType: "json",
     body: userInfo,
+    handler: function(req,res){
+      res.send(util.format("check get api | name: %s, age: %d", req.body.name, req.body.age));
+    }
+  });
+  /**
+   * test json from model
+   */
+  fn({
+    method: "post",
+    path: "/check/json3",
+    contentType: "json",
+    body: "user",
+    handler: function(req,res){
+      res.send(util.format("check get api | name: %s, age: %d", req.body.name, req.body.age));
+    }
+  });
+
+  /**
+   * test json from model
+   */
+  fn({
+    method: "post",
+    path: "/check/json4",
+    contentType: "json",
+    body: "class",
     handler: function(req,res){
       res.send(util.format("check get api | name: %s, age: %d", req.body.name, req.body.age));
     }
