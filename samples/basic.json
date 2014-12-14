@@ -48,6 +48,21 @@
             "consumes" : ["application/json"]
         }
     },
+    "/check/xml1" : {
+        "post" : {
+            "tags" : ["xml"],
+            "summary" : "test xml data",
+            "description" : "",
+            "parameters" : [{
+                "name":"body",
+                "in":"body",
+                "schema":{
+                  "$ref": "#/definitions/userInfo2"
+                }
+            }],
+            "consumes" : ["application/xml"]
+        }
+    },
     "/swagger/check/{num}":{
       "get":{
         "tags":["manual"],

@@ -129,7 +129,8 @@ module.exports = function(fn){
     contentType: "json",
     body: "class",
     handler: function(req,res){
-      res.send(util.format("check get api | name: %s, age: %d", req.body.name, req.body.age));
+      var student = req.body.students[0];
+      res.send(util.format("check get api | name: %s, age: %d", student.name, student.age));
     }
   });
   /**
