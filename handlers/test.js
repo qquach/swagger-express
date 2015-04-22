@@ -2,7 +2,6 @@
  * Description of the test handler. This will be used as description for the tag object
  */
 var util = require("util");
-var userInfo = require("../schema/userInfo.js");
 
 module.exports = function(fn){
   fn({
@@ -102,7 +101,7 @@ module.exports = function(fn){
     method: "post",
     path: "/check/json2",
     contentType: "json",
-    body: userInfo,
+    body: "#userInfo",
     handler: function(req,res){
       res.send(util.format("check get api | name: %s, age: %d", req.body.name, req.body.age));
     }
@@ -114,7 +113,7 @@ module.exports = function(fn){
     method: "post",
     path: "/check/json3",
     contentType: "json",
-    body: "user",
+    body: "#definitions/user",
     handler: function(req,res){
       res.send(util.format("check get api | name: %s, age: %d", req.body.name, req.body.age));
     }
@@ -127,7 +126,7 @@ module.exports = function(fn){
     method: "post",
     path: "/check/json4",
     contentType: "json",
-    body: "class",
+    body: "#definitions/class",
     handler: function(req,res){
       var student = req.body.students[0];
       res.send(util.format("check get api | name: %s, age: %d", student.name, student.age));
@@ -140,7 +139,7 @@ module.exports = function(fn){
     method: "post",
     path: "/check/xml",
     contentType: "xml",
-    body: userInfo,
+    body: "#userInfo",
     handler: function(req,res){
       res.send(util.format("check get api | name: %s, age: %d, toys: %s", req.body.name, req.body.age, req.toys.join(";")));
     }
