@@ -70,8 +70,9 @@ module.exports = function(fn){
       }
     },
     handler: function(req,res){
-      res.send(util.format("check get api | abc: %s, check: %s, p: %s", req.parameters["abc"], req.parameters["check"], req.parameters["p"]));
-      res.send(util.format("check get api | name: %s, age: %s", req.body["abc"], req.body["check"]));
+      res.write(util.format("check get api | abc: %s, check: %s, p: %s", req.parameters["abc"], req.parameters["check"], req.parameters["p"]));
+      res.write(util.format("check get api | name: %s, age: %s", req.body["name"], req.body["age"]));
+      res.end();
     }
   });
   fn({
@@ -141,7 +142,7 @@ module.exports = function(fn){
     contentType: "xml",
     body: "#userInfo",
     handler: function(req,res){
-      res.send(util.format("check get api | name: %s, age: %d, toys: %s", req.body.name, req.body.age, req.toys.join(";")));
+      res.send(util.format("check get api | name: %s, age: %d, toys: %s", req.body.name, req.body.age, req.body.toys.join(";")));
     }
   });
 };
